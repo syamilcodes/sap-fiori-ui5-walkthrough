@@ -4,23 +4,22 @@ sap.ui.define([
 	"use strict";
 
 	return {
-
 		init() {
 			// create
 			const oMockServer = new MockServer({
-				rootUri: sap.ui.require.toUrl("ui5/walkthrough") + "/V2/Northwind/Northwind.svc/"
+				rootUri: sap.ui.require.toUrl("services.odata.org") + "/V2/Northwind/Northwind.svc/"
 			});
 
-			const oUriParameters = new URLSearchParams(window.location.search);
+			const oUrlParams = new URLSearchParams(window.location.search);
 
 			// configure mock server with a delay
 			MockServer.config({
 				autoRespond: true,
-				autoRespondAfter: oUriParameters.get("serverDelay") || 500
+				autoRespondAfter: oUrlParams.get("serverDelay") || 500
 			});
 
 			// simulate
-			const sPath = sap.ui.require.toUrl("ui5/walkthrough/localService");
+			const sPath = sap.ui.require.toUrl("testapp/localService");
 			oMockServer.simulate(sPath + "/metadata.xml", sPath + "/mockdata");
 
 			// start

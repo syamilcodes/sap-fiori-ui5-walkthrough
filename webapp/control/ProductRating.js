@@ -6,22 +6,20 @@ sap.ui.define([
 ], (Control, RatingIndicator, Label, Button) => {
 	"use strict";
 
-	return Control.extend("ui5.walkthrough.control.ProductRating", {
-		metadata: {
-			properties: {
-				value: { type: "float", defaultValue: 0 }
+	return Control.extend("testapp.control.ProductRating", {
+		metadata : {
+			properties : {
+				value: 	{type : "float", defaultValue : 0}
 			},
-
-			aggregations: {
-				_rating: { type: "sap.m.RatingIndicator", multiple: false, visibility: "hidden" },
-				_label: { type: "sap.m.Label", multiple: false, visibility: "hidden" },
-				_button: { type: "sap.m.Button", multiple: false, visibility: "hidden" }
+			aggregations : {
+				_rating : {type : "sap.m.RatingIndicator", multiple: false, visibility : "hidden"},
+				_label : {type : "sap.m.Label", multiple: false, visibility : "hidden"},
+				_button : {type : "sap.m.Button", multiple: false, visibility : "hidden"}
 			},
-
-			events: {
-				change: {
-					parameters: {
-						value: { type: "int" }
+			events : {
+				change : {
+					parameters : {
+						value : {type : "int"}
 					}
 				}
 			}
@@ -80,7 +78,6 @@ sap.ui.define([
 				value: this.getValue()
 			});
 		},
-
 		renderer(oRm, oControl) {
 			oRm.openStart("div", oControl);
 			oRm.class("myAppDemoWTProductRating");

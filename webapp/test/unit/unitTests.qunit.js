@@ -1,3 +1,3 @@
 sap.ui.define([
-	"./model/formatter"
+    "./model/formatter"
 ]);

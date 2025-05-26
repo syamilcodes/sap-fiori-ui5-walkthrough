@@ -1,3 +1,3 @@
 sap.ui.define([
-	"./NavigationJourney"
+    "./NavigationJourney"
 ]);

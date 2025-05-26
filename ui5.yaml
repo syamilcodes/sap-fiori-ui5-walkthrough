@@ -1,6 +1,6 @@
 specVersion: "4.0"
 metadata:
-  name: ui5.walkthrough
+  name: testapp
 type: application
 framework:
   name: OpenUI5
