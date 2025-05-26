@@ -1,3 +1,1 @@
-sap.ui.define([
-	"./NavigationJourney"
-]);
+sap.ui.define(["./NavigationJourney"]);

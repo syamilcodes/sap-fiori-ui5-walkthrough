@@ -1,38 +1,22 @@
-<mvc:View
-	controllerName="ui5.walkthrough.controller.HelloPanel"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
->
-	<Panel
-		headerText="{i18n>helloPanelTitle}"
-		class="sapUiResponsiveMargin"
-		width="auto"
-		expandable="{device>/system/phone}"
-		expanded="{= !${device>/system/phone} }"
-		accessibleRole="Region"
-	>
-		<content>
-			<Button
-				id="helloDialogButton"
-				icon="sap-icon://world"
-				text="{i18n>openDialogButtonText}"
-				press=".onOpenDialog"
-				class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"
-			/>
-			<Button
-				text="{i18n>showHelloButtonText}"
-				press=".onShowHello"
-				class="myCustomButton"
-			/>
-			<Input
-				value="{/recipient/name}"
-				valueLiveUpdate="true"
-				width="60%"
-			/>
-			<FormattedText
-				htmlText="Hello {/recipient/name}"
-				class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"
-			/>
-		</content>
-	</Panel>
+<mvc:View controllerName="ui5.walkthrough.controller.HelloPanel"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Panel headerText="{i18n>helloPanelTitle}" class="sapUiResponsiveMargin" width="auto" expandable="{device>/system/phone}" expanded="{= !${device>/system/phone} }" accessibleRole="Region">
+        <!-- VBox for vertical layout because SAPUI5 by default stacks items horizontally when no layout is specified -->
+        <!-- Class margin documentation https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/77/7168ffe8324873973151dae2356d1c/frameset.htm -->
+        <VBox class="sapUiResponsiveMargin">
+            <Text text="Hello from XML View!" class="sapUiSmallMarginBottom sapThemeHighlight-asColor myCustomText" />
+            <!-- This Button gives alert -->
+            <Button text="Press this Button!" press=".onShowButtonHello" class="myCustomButton sapUiVisibleOnlyOnDesktop"/>
+            <!-- Below used massage toast -->
+            <Button text="Press this NEW Button!" press=".onShowButtonToast" class="sapUiSmallMarginBottom" />
+            <!-- /recipient/name means object has key "recipient" which an object that has key "name" -->
+            <Label text="Main theme is {settings>/theme}" labelFor="myInput"/>
+            <Input id="myInput" value="{main>/recipient/name}" description="Hello this is a {main>/recipient/name}" valueLiveUpdate="true" width="50%" />
+            <!-- This Button gives Toast Message from the input field-->
+            <Button text="{i18n>showHelloButtonText}" press=".onShowResource" class="sapUiSmallMarginBottom"/>
+            <!-- This Button shows Dialog -->
+            <Button id="helloDialogButton" icon="sap-icon://world" text="{i18n>openDialogButtonText}" press=".onOpenDialog" class="sapUiSmallMarginBottom"/>
+        </VBox>
+    </Panel>
 </mvc:View>

@@ -1,17 +1,17 @@
 {
   "name": "ui5.walkthrough",
   "version": "1.0.0",
-  "private": true,
-  "author": "SAP SE",
-  "description": "UI5 Demo App - Walkthrough Tutorial",
+  "description": "The UI5 walkthrough application",
   "scripts": {
-    "start": "ui5 serve -o test/mockServer.html",
+    "start": "ui5 serve -o index.html",
+    "test": "ui5 serve -o test/testsuite.qunit.html",
     "build": "ui5 build --all --clean-dest",
     "serve-dist": "ws --compress -d dist --open"
   },
   "devDependencies": {
-    "@ui5/cli": "^4",
-    "local-web-server": "^5",
-    "ui5-middleware-simpleproxy": "^3"
+    "@prettier/plugin-xml": "^3.4.1",
+    "@ui5/cli": "^4.0.15",
+    "prettier": "^3.5.3",
+    "ui5-middleware-simpleproxy": "^3.4.1"
   }
 }

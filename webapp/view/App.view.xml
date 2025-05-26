@@ -1,13 +1,9 @@
-<mvc:View
-	controllerName="ui5.walkthrough.controller.App"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true"
->
-	<Shell>
-		<App
-			class="myAppDemoWT"
-			id="app"
-		/>
-	</Shell>
+<!-- controllerName="ui5.walkthrough.controller.App" will refer to folder "controller" and the file "App.controller.js" -->
+<!-- mvc means model view controller -->
+<mvc:View controllerName="ui5.walkthrough.controller.App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+    <Shell>
+        <App class="myAppDemoWT" id="app"/>
+    </Shell>
 </mvc:View>
