@@ -1,38 +1,60 @@
 <mvc:View
-	controllerName="ui5.walkthrough.controller.HelloPanel"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
+    controllerName="com.iqbal.app.controller.HelloPanel"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
 >
-	<Panel
-		headerText="{i18n>helloPanelTitle}"
-		class="sapUiResponsiveMargin"
-		width="auto"
-		expandable="{device>/system/phone}"
-		expanded="{= !${device>/system/phone} }"
-		accessibleRole="Region"
-	>
-		<content>
-			<Button
-				id="helloDialogButton"
-				icon="sap-icon://world"
-				text="{i18n>openDialogButtonText}"
-				press=".onOpenDialog"
-				class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"
-			/>
-			<Button
-				text="{i18n>showHelloButtonText}"
-				press=".onShowHello"
-				class="myCustomButton"
-			/>
-			<Input
-				value="{/recipient/name}"
-				valueLiveUpdate="true"
-				width="60%"
-			/>
-			<FormattedText
-				htmlText="Hello {/recipient/name}"
-				class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"
-			/>
-		</content>
-	</Panel>
+    <Panel
+        headerText="{i18n>helloPanelTitle}"
+        class="sapUiResponsiveMargin"
+        width="auto"
+        expandable="{device>/system/phone}"
+        expanded="{= !${device>/system/phone} }"
+        accessibleRole="Region"
+    >
+        <content>
+            <Button
+                id="helloDialogButton"
+                icon="sap-icon://world"
+                text="{i18n>openDialogButtonText}"
+                press=".onOpenDialog"
+                class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"
+            />
+            <Button
+                text="{i18n>showHelloButtonText}"
+                press=".onShowHello"
+                class="MyCustomButton"
+            />
+
+            <Button
+                id="imageDialogButton"
+                icon="sap-icon://world"
+                text="{i18n>imageDialogButtonText}"
+                press=".onShowImageDialog"
+                class="sapUiSmallMarginBeginEnd"
+            />
+
+            <Button
+                id="videoDialogButton"
+                icon="sap-icon://world"
+                text="{i18n>videoDialogButtonText}"
+                press=".onShowVideoDialog"
+                class="sapUiSmallMarginEnd"
+            />
+
+            <Input
+                value="{/recipient/name}"
+                description="{i18n>helloText} {/recipient/name}"
+                valueLiveUpdate="true"
+                width="60%"
+            />
+            <Text
+                text="Hello {/recipient/name}"
+                class="sapUiSmallMargin"
+            />
+            <FormattedText
+                htmlText="Hello {/recipient/name}"
+                class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"
+            />
+        </content>
+    </Panel>
 </mvc:View>

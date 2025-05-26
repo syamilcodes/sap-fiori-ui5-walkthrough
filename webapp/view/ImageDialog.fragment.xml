@@ -3,20 +3,19 @@
     xmlns:core="sap.ui.core"
 >
     <Dialog
-        id="helloDialog"
-        title="Hello {/recipient/name}"
+        id="imageDialog"
+        title="Doge"
     >
         <content>
-            <core:Icon
-                src="sap-icon://hello-world"
-                size="8rem"
-                class="sapUiMediumMargin"
+            <Image
+                id="dialogImage"
+                src="{/imagePath}"
             />
         </content>
         <beginButton>
             <Button
                 text="{i18n>dialogCloseButtonText}"
-                press=".onCloseDialog"
+                press=".onCloseDialog('imageDialog')"
             />
         </beginButton>
     </Dialog>

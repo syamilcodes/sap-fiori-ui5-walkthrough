@@ -1,0 +1,31 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="videoDialog"
+        title="Dancing!"
+        stretch="true"
+    >
+        <content>
+            <VBox>
+                <core:HTML
+                    id="videoPlayer"
+                    content='&lt;iframe width=100%"
+                                  style="aspect-ratio: 16/9;"
+                                  src="https://www.youtube.com/embed/gu3KzCWoons?autoplay=1" 
+                                  frameborder="0" 
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" 
+                                  allowfullscreen&gt;
+                             &lt;/iframe&gt;'
+                />
+            </VBox>
+        </content>
+        <endButton>
+            <Button
+                text="Close"
+                press=".onCloseDialog('videoDialog')"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

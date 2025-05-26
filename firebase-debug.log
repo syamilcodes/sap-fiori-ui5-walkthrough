@@ -1,0 +1,21 @@
+[debug] [2025-05-21T03:51:32.661Z] ----------------------------------------------------------------------
+[debug] [2025-05-21T03:51:32.663Z] Command:       C:\nvm4w\nodejs\node.exe C:\Users\HAND\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-05-21T03:51:32.664Z] CLI Version:   14.4.0
+[debug] [2025-05-21T03:51:32.664Z] Platform:      win32
+[debug] [2025-05-21T03:51:32.664Z] Node Version:  v22.14.0
+[debug] [2025-05-21T03:51:32.664Z] Time:          Wed May 21 2025 10:51:32 GMT+0700 (Western Indonesia Time)
+[debug] [2025-05-21T03:51:32.665Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-05-21T03:51:32.669Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-05-21T03:51:32.670Z] > authorizing via signed-in user (iqbalnurakbarwork@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\VSCode\SAPUI5\com-iqbal-app
+

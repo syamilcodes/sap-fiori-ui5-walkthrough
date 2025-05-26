@@ -1,47 +1,69 @@
-sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/routing/History",
-	"sap/m/MessageToast",
-	"sap/ui/model/json/JSONModel"
-], (Controller, History, MessageToast, JSONModel) => {
-	"use strict";
+sap.ui.define(
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/routing/History",
+    "sap/m/MessageToast",
+    "sap/ui/model/json/JSONModel",
+  ],
+  (Controller, History, MessageToast, JSONModel) => {
+    "use strict";
 
-	return Controller.extend("ui5.walkthrough.controller.Detail", {
-		onInit() {
-			const oViewModel = new JSONModel({
-				currency: "EUR"
-			});
-			this.getView().setModel(oViewModel, "view");
+    return Controller.extend("com.iqbal.app.controller.Detail", {
+      onInit() {
+        const oViewModel = new JSONModel({
+          currency: "EUR",
+        });
+        this.getView().setModel(oViewModel, "view");
 
-			const oRouter = this.getOwnerComponent().getRouter();
-			oRouter.getRoute("detail").attachPatternMatched(this.onObjectMatched, this);
-		},
+        const oRouter = this.getOwnerComponent().getRouter();
+        oRouter
+          .getRoute("detail")
+          .attachPatternMatched(this.onObjectMatched, this);
+      },
 
-		onObjectMatched(oEvent) {
-			this.byId("rating").reset();
-			this.getView().bindElement({
-				path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
-				model: "invoice"
-			});
-		},
+      onObjectMatched(oEvent) {
+        this.byId("rating").reset();
+        const isRemote = this.getOwnerComponent()
+          .getModel("view")
+          .getProperty("/isRemoteData");
 
-		onNavBack() {
-			const oHistory = History.getInstance();
-			const sPreviousHash = oHistory.getPreviousHash();
+        const sPath = window.decodeURIComponent(
+          oEvent.getParameter("arguments").invoicePath
+        );
 
-			if (sPreviousHash !== undefined) {
-				window.history.go(-1);
-			} else {
-				const oRouter = this.getOwnerComponent().getRouter();
-				oRouter.navTo("overview", {}, true);
-			}
-		},
+        const oModel = this.getOwnerComponent().getModel(
+          isRemote ? "invoiceOdata" : "invoice"
+        );
+        this.getView().setModel(oModel, "invoice");
 
-		onRatingChange(oEvent) {
-			const fValue = oEvent.getParameter("value");
-			const oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+        this.getView().bindElement({
+          path: "/" + sPath,
+          model: "invoice",
+        });
+      },
 
-			MessageToast.show(oResourceBundle.getText("ratingConfirmation", [fValue]));
-		}
-	});
-});
+      onNavBack() {
+        const oHistory = History.getInstance();
+        const sPreviousHash = oHistory.getPreviousHash();
+
+        if (sPreviousHash !== undefined) {
+          window.history.go(-1);
+        } else {
+          const oRouter = this.getOwnerComponent().getRouter();
+          oRouter.navTo("overview", {}, true);
+        }
+      },
+
+      onRatingChange(oEvent) {
+        const fValue = oEvent.getParameter("value");
+        const oResourceBundle = this.getView()
+          .getModel("i18n")
+          .getResourceBundle();
+
+        MessageToast.show(
+          oResourceBundle.getText("ratingConfirmation", [fValue])
+        );
+      },
+    });
+  }
+);
