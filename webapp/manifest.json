@@ -40,9 +40,8 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "com.iqbal.app.i18n.i18n",
-          "bundleLocale": "{sap.ui.getCore().getConfiguration().getLanguage()}",
           "supportedLocales": ["en", "ja"],
-          "fallbackLocale": ""
+          "fallbackLocale": "en"
         }
       },
       "invoice": {
